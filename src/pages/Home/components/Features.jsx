@@ -27,15 +27,11 @@ const Features = () => {
     },
   ];
   return (
-    <div>
-      <div className="pt-[55px] mt-[28px] lg:px-[64px] px-[16px] flex flex-col  w-full">
-        <h1 className="text-[28px] lg:text-[48px] lg:px-[106px] lg:leading-[56.11px] font-[700] leading-[38.73px] text-center text-black">
-          Unlock the full potential of your business with a feature-rich account
-          designed for growth.
-        </h1>
+      // <div className="pt-[55px] mt-[28px] lg:px-[64px] px-[16px] flex flex-col  w-full">
+       
         <div className="flex max-lg:flex-col lg:justify-center lg:flex-wrap mt-[40px] gap-y-[20px]">
           {features?.map((feat, index) => (
-            <div className="flex lg:w-[424px] bg-[#F8FEF3] flex-col p-[16px]" key={index}>
+            <div className="flex lg:w-[424px] rounded-[8px] bg-[#F8FEF3] flex-col p-[16px]" key={index}>
               <div className="flex flex-col gap-y-[8px]">
                 <div className="bg-[#D0F8B1] rounded-full size-[40px] px-[8px] py-[10.5px] gap-[8px]">
                   <img src={feat.icon} className="size-full" />
@@ -50,8 +46,7 @@ const Features = () => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      // </div>
   );
 };
 

@@ -8,13 +8,13 @@ import Faqs from "./components/Faq";
 import Download from "./components/Download";
 import { MdArrowLeft, MdArrowRight } from "react-icons/md";
 import BeelersStories from "./components/BeelersStories";
+import ComingSoon from "../../components/ComingSoon";
 
 const Home = () => {
   return (
     <div className="w-full pt-[15px] lg:pb-[121px] bg-[#F4FDED] font-karla">
-      <p className="bg-greenPrimary text-[#B6F485] py-[5px] text-center">
-        Coming soon on Apple Store
-      </p>
+      {/* coming soon */}
+      <ComingSoon />
       <div className="lg:flex gap-x-[100px] lg:px-[64px] lg:mt-[118px]">
         <div className="flex flex-col max-lg:items-center max-lg:px-[20px] max-lg:mt-[44px]">
           <h1 className="text-[32px] lg:text-[64px] font-karla font-[700] lg:leading-[63.13px] leading-[37.41px] max-lg:text-center text-black ">
@@ -60,7 +60,13 @@ const Home = () => {
         </div>
       </div>
       <div className="bg-white  pb-[55px]">
-        <Features />
+        <div className="pt-[55px] mt-[28px] lg:px-[64px] px-[16px] flex flex-col  w-full">
+          <h1 className="text-[28px] lg:text-[48px] lg:px-[106px] lg:leading-[56.11px] font-[700] leading-[38.73px] text-center text-black">
+            Unlock the full potential of your business with a feature-rich
+            account designed for growth.
+          </h1>
+          <Features />
+        </div>
       </div>
       <div className="px-[20px] lg:px-[64px] pt-[99px] ">
         <GetPaid />
@@ -86,7 +92,10 @@ const Home = () => {
         </div>
         {/* Small Business */}
         <div className="lg:w-full max-lg:mt-[26px] relative">
-          <img src={start} className=" border-white max-lg:h-[304px] lg:w-full  w-[304px]" />
+          <img
+            src={start}
+            className=" border-white max-lg:h-[304px] lg:w-full  w-[304px]"
+          />
           <div className="flex flex-col lg:bottom-[48px] lg:left-[48px] absolute bottom-[32px] pl-[27px] pr-[57px] lg:gap-y-[10px]">
             <h3 className="text-[24px] lg:text-[36px] lg:leading-[28px] leading-[28px] font-[700] text-white">
               Small Businesses
@@ -99,9 +108,7 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <div>
-          {/* <BeelersStories/> */}
-        </div>
+        <div>{/* <BeelersStories/> */}</div>
         <div className="pt-[64px]">
           <Faqs />
         </div>
