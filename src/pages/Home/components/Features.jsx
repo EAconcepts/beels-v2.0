@@ -28,23 +28,23 @@ const Features = () => {
   ];
   return (
     <div>
-      <div className="pt-[55px] mt-[28px] px-[16px] flex flex-col  w-full">
-        <h1 className="text-[28px] font-[700] leading-[38.73px] text-center text-black">
+      <div className="pt-[55px] mt-[28px] lg:px-[64px] px-[16px] flex flex-col  w-full">
+        <h1 className="text-[28px] lg:text-[48px] lg:px-[106px] lg:leading-[56.11px] font-[700] leading-[38.73px] text-center text-black">
           Unlock the full potential of your business with a feature-rich account
           designed for growth.
         </h1>
-        <div className="flex flex-col mt-[40px] gap-y-[20px]">
+        <div className="flex max-lg:flex-col lg:justify-center lg:flex-wrap mt-[40px] gap-y-[20px]">
           {features?.map((feat, index) => (
-            <div className="flex bg-[#F8FEF3] flex-col p-[16px]" key={index}>
+            <div className="flex lg:w-[424px] bg-[#F8FEF3] flex-col p-[16px]" key={index}>
               <div className="flex flex-col gap-y-[8px]">
                 <div className="bg-[#D0F8B1] rounded-full size-[40px] px-[8px] py-[10.5px] gap-[8px]">
                   <img src={feat.icon} className="size-full" />
                 </div>
-                <h3 className="text-[16px] font-[500] leading-[19.35px] text-[#03110E]">
+                <h3 className="text-[16px]lg:text-[20px] lg:leading-[24px] font-[500] leading-[19.35px] text-[#03110E]">
                   {feat.title}
                 </h3>
               </div>
-              <p className="text-[14px] font-[400] leading-[24px] text-[#666666] ">
+              <p className="text-[14px] lg:leading-[20px] font-[400] leading-[24px] text-[#666666] ">
                 {feat.desc}
               </p>
             </div>
