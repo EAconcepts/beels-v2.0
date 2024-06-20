@@ -2,12 +2,12 @@ import { MdNavigateNext } from "react-icons/md";
 import keepTrack from "../../../assets/images/keep-track2.png";
 import Button from "../../../components/Button";
 
-const BIRMgt = () => {
+const BIRMgt = ({heading}) => {
   return (
     <div className="pt-[93px]">
       <div className="flex flex-col gap-y-[24px]">
         <h2 className="text-greenPrimary text-[32px] font-[700] leading-[37.41px] text-center">
-          Free Up Your Time: Effortless BIR Management with{" "}
+          {`${heading || 'Free Up Your Time: Effortless BIR Management with'}`}
           <span className="text-[#FF7650] font-caveat font-[400] leading-[40.32px]">
             Beels
           </span>

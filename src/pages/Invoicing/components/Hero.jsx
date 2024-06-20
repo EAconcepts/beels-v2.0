@@ -4,17 +4,17 @@ import curve2 from "../../../assets/images/curve2.svg";
 import { BiLogoPlayStore } from "react-icons/bi";
 import { PiGlobe } from "react-icons/pi";
 
-const Hero = () => {
+const Hero = ({heroImg, heading}) => {
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-[32px] text-center text-black font-[700] leading-[37.41px]">
-        Effortless Invoicing: Simplify your finance with{" "}
+        {`Effortless ${heading || "Invoicing"}: Simplify your finance with `}
         <span className="text-[#FF7650] leading-[40.32px] font-caveat font-[400]">
           Beels
         </span>
       </h2>
       <p className="text-black mt-[11px] text-center leading-[18.7px] text-[16px] font-[400] ">
-        Take control of your finances: Invoicing made easy for Entrepreneurs
+        Take control of your finances: {heading || `Invoicing`} made easy for Entrepreneurs
         with Beels.
       </p>
       <p className="mt-[31px] font-[500] text-[20px] leading-[23.38px] max-lg:text-center text-black">
@@ -41,7 +41,7 @@ const Hero = () => {
       {/* image */}
       <div className="mt-[52.94px] relative ">
         <img src={curve} className="absolute top-[-20px] " />
-        <img src={invoicing} className="z-0" />
+        <img src={heroImg || invoicing} className="z-0" />
         <img src={curve2} className="z-  right-0 absolute bottom-[-18px]" />
       </div>
     </div>
