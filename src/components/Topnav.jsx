@@ -1,5 +1,9 @@
 import logo from "../assets/logo.svg";
 import logoText from "../assets/images/logoText.svg";
+import invoice from "../assets/images/invoice.svg";
+import receipt from "../assets/images/receipt.svg";
+import money from "../assets/images/money.svg";
+import bookkeeping from "../assets/images/bookkeeping.svg";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -7,8 +11,58 @@ import Button from "./Button";
 import { useState } from "react";
 import { IoCaretDownOutline, IoCloseCircleOutline } from "react-icons/io5";
 
+const menuList = [
+  {
+    title: "Business",
+    links: [
+      {
+        title: "Invoicing",
+        link: "/invoicing",
+      },
+      {
+        title: "Bookkeeping",
+        link: "/bookkeeping",
+      },
+      {
+        title: "Receipt",
+        link: "/receipt",
+      },
+      {
+        title: "Airtime",
+        link: "/airtime",
+      },
+    ],
+  },
+  {
+    title: "Professional",
+    links: [
+      {
+        title: "Airtime & Data",
+        link: "/airtime",
+      },
+      {
+        title: "Pay Bills",
+        link: "/bills",
+      },
+      {
+        title: "Virtual Card",
+        link: "/cards",
+      },
+      {
+        title: "Domestic Transfer",
+        link: "/transfers",
+      },
+    ],
+  },
+  {
+    title: "Company",
+    link: "company",
+  },
+];
 const Topnav = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [showBusiness, setShowBusiness] = useState(false);
+  const [showProfessional, setShowProfessional] = useState(false);
 
   return (
     <header
@@ -27,13 +81,27 @@ const Topnav = () => {
           <div className="w-full hidden lg:flex justify-between items-center">
             {/* Links */}
             <div className="flex gap-x-[40px]">
-              <NavLink to="#" className="flex gap-x-[10px] items-center">
+              <div
+                onClick={() =>{
+                  setShowProfessional(false);
+                  setShowBusiness((prev) => !prev)}}
+                to="#"
+                className="flex gap-x-[10px] items-center relative"
+              >
+                {showBusiness && <FloatingMenu />}
                 <span className="text-[24px] tracking-[1.5px] text-center text-greenPrimary leading-[28.06px] font-[500]">
                   Business
                 </span>
                 <IoMdArrowDropdown className="text-black text-[24px]" />
-              </NavLink>
-              <NavLink to="#" className="flex gap-x-[10px] items-center">
+              </div>
+              <NavLink 
+                onClick={() => {
+                  setShowBusiness(false)
+                  setShowProfessional((prev) => !prev)
+                  
+                }}
+                to="#" className="flex gap-x-[10px] relative items-center">
+                {showProfessional && <ProfMenu />}
                 <span className="text-[24px] tracking-[1.5px] text-center text-greenPrimary leading-[28.06px] font-[500]">
                   Professional
                 </span>
@@ -70,55 +138,159 @@ const Topnav = () => {
   );
 };
 
-const MobileMenu = () => {
-  const menuList = [
-    {
-      title: "Business",
-      links: [
-        {
-          title: "Invoicing",
-          link: "/invoicing",
-        },
-        {
-          title: "Bookkeeping",
-          link: "/bookkeeping",
-        },
-        {
-          title: "Receipt",
-          link: "/receipt",
-        },
-        {
-          title: "Airtime",
-          link: "/airtime",
-        },
-      ],
-    },
-    {
-      title: "Professional",
-      links: [
-        {
-          title: "Airtime & Data",
-          link: "/airtime",
-        },
-        {
-          title: "Pay Bills",
-          link: "/bills",
-        },
-        {
-          title: "Virtual Card",
-          link: "/cards",
-        },
-        {
-          title: "Domestic Transfer",
-          link: "/transfers",
-        },
-      ],
-    },
-    {
-      title: "Company",
-      link: "company",
-    },
+const FloatingMenu = () => {
+  const bsMgt = [
+    { title: "Invoice", path: "/invoicing", icon: invoice },
+    { title: "Receipt", path: "/receipt", icon: receipt },
+    { title: "Book-Keeping", path: "/bookkeeping", icon: bookkeeping },
   ];
+  const cashMgt = [
+    { title: "Beels Money Market note", path: "#", icon: invoice },
+    { title: "Fixed Deposit", path: "#", icon: receipt },
+  ];
+  const payment = [
+    { title: "Airtime & Data", path: "#", icon: invoice },
+    { title: "Pay Bills", path: "#", icon: receipt },
+    { title: "Virtual card", path: "#", icon: receipt },
+    {
+      title: "Global pay china",
+      desc: "coming soon",
+      path: "#",
+      icon: receipt,
+    },
+    { title: "Domestic Transfer", path: "#", icon: receipt },
+  ];
+  return (
+    <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
+      <div className="">
+        {/* Business Mgt */}
+        <div className="flex flex-col">
+          <h4 className="text-[20px] font-[500] leading-[23.38px] text-center tracking-[1.5px] text-black">
+            Business Management
+          </h4>
+          <div className="flex flex-col mt-[18px] gap-y-[16px]">
+            {bsMgt?.map((link, index) => (
+              <Link
+                to={link.path}
+                key={index}
+                className="flex gap-x-[14.2px] items-center"
+              >
+                <img src={link.icon} />
+                <span>{link.title}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+        {/* Cash Mgt */}
+        <div className="flex flex-col mt-[47px]">
+          <h4 className="text-[20px] font-[500] leading-[23.38px] tracking-[1.5px] text-black">
+            {" "}
+            Cash Management
+          </h4>
+          <div className="flex flex-col mt-[18px] gap-y-[16px]">
+            {cashMgt?.map((link, index) => (
+              <Link
+                to={link.path}
+                key={index}
+                className="flex gap-x-[14.2px] items-center"
+              >
+                <img src={link.icon} />
+                <span>{link.title}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+        {/* Cash Mgt */}
+        <div className="flex flex-col mt-[61px]">
+          <h4 className="text-[20px] font-[500] leading-[23.38px] tracking-[1.5px] text-black">
+            {" "}
+            Credit
+          </h4>
+          <div className="flex flex-col mt-[18px] gap-y-[16px]">
+            <Link to="#" className="flex gap-x-[14.2px] items-center">
+              <div className=" bg-gradient-to-tr from-[#B6F485] to-[#E9FDF2] rounded-full size-[48px] flex items-center justify-center">
+                <img src={money} />
+              </div>
+              <span>Business Nano Credit</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col">
+        {/* Cash Mgt */}
+        <div className="flex flex-col mt[47px]">
+          <h4 className="text-[20px] font-[500] leading-[23.38px] tracking-[1.5px] text-black">
+            {" "}
+            Payment Services
+          </h4>
+          <div className="flex flex-col mt-[18px] gap-y-[16px]">
+            {payment?.map((link, index) => (
+              <Link
+                to={link.path}
+                key={index}
+                className="flex gap-x-[14.2px] items-center"
+              >
+                <img src={link.icon} />
+                <div className="flex flex-col gap-y-[5px]">
+                  <span>{link.title}</span>
+                  {link?.desc && (
+                    <span className="text-[10px] leading-[11.69px] tracking-[1.5px] text-[#FF7650]">
+                      {link.desc}
+                    </span>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ProfMenu = () => {
+  const payment = [
+    { title: "Airtime & Data", path: "#", icon: invoice },
+    { title: "Pay Bills", path: "#", icon: receipt },
+    { title: "Virtual card", path: "#", icon: receipt },
+   
+    { title: "Domestic Transfer", path: "#", icon: receipt },
+  ];
+  return (
+    <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
+      <div className="flex flex-col">
+        {/* Cash Mgt */}
+        <div className="flex flex-col mt[47px]">
+          <h4 className="text-[20px] font-[500] leading-[23.38px] tracking-[1.5px] text-black">
+            {" "}
+            Payment Services
+          </h4>
+          <div className="flex flex-col mt-[18px] gap-y-[16px]">
+            {payment?.map((link, index) => (
+              <div
+                to={link.path}
+                key={index}
+                className="flex gap-x-[14.2px] items-center"
+              >
+                <img src={link.icon} />
+                <div className="flex flex-col gap-y-[5px]">
+                  <span>{link.title}</span>
+                  {link?.desc && (
+                    <span className="text-[10px] leading-[11.69px] tracking-[1.5px] text-[#FF7650]">
+                      {link.desc}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MobileMenu = () => {
   return (
     <div className="fixed h-screen font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
       <div className="flex flex-col gap-y-[24px]">
