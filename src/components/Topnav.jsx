@@ -50,7 +50,7 @@ const menuList = [
       },
       {
         title: "Domestic Transfer",
-        link: "/transfers",
+        link: "/domestic-transfer",
       },
     ],
   },
@@ -159,7 +159,7 @@ const FloatingMenu = () => {
       path: "#",
       icon: receipt,
     },
-    { title: "Domestic Transfer", path: "#", icon: receipt },
+    { title: "Domestic Transfer", path: "/domestic-transfer", icon: receipt },
   ];
   return (
     <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
@@ -253,10 +253,10 @@ const ProfMenu = () => {
   const navigateTo = useNavigate();
   const payment = [
     { title: "Airtime & Data", path: "/airtime", icon: invoice },
-    { title: "Pay Bills", path: "/airtime", icon: receipt },
+    { title: "Pay Bills", path: "/bills", icon: receipt },
     { title: "Virtual card", path: "#", icon: receipt },
 
-    { title: "Domestic Transfer", path: "#", icon: receipt },
+    { title: "Domestic Transfer", path: "/domestic-transfer", icon: receipt },
   ];
   return (
     <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
@@ -272,7 +272,6 @@ const ProfMenu = () => {
               <div
                 onClick={() => {
                   navigateTo(`${link.path}`);
-                  console.log(link.path);
                 }}
                 key={index}
                 className="flex gap-x-[14.2px] items-center"

@@ -2,17 +2,20 @@ import { BiLogoPlayStore } from "react-icons/bi";
 import { PiGlobe } from "react-icons/pi";
 import heroImg from "../../../assets/images/airtime-phone.png";
 import curve from "../../../assets/images/curve.svg";
+import { twMerge } from "tailwind-merge";
 
-const Hero = () => {
+const Hero = ({ heading, desc, img, curveStyle }) => {
   return (
     <div>
-      <div className="flex max-lg:flex-col items-center lg:pb-[73px]">
+      <div className="flex max-lg:flex-col font-karla items-center lg:pb-[73px]">
         <div className="lg:px-[65px]">
           <h2 className="text-[32px] lg:text-[64px] lg:leading-[74.82px] lg:text-greenPrimary max-lg:text-center text-black font-[700] leading-[37.41px]">
-            Recharge your phone easily on the Beels for Business app
+            {heading ||
+              "Recharge your phone easily on the Beels for Business app"}
           </h2>
-          <p className="text-black lg:text-[32px] lg:leading-[37.41px] lg:mt-[27px] lg:text-[#1A1A1A] mt-[16px] text-center leading-[18.7px] text-[16px] font-[400] ">
-            Buy Airtel Glo, MTN and 9Mobile airtimes and internet data anytime.
+          <p className="text-black lg:text-[32px] lg:leading-[37.41px] lg:mt-[27px] lg:text-[#1A1A1A] mt-[16px] max-lg:text-center leading-[18.7px] text-[16px] font-[400] lg:font-[500]">
+            {desc ||
+              " Buy Airtel Glo, MTN and 9Mobile airtimes and internet data anytime."}
           </p>
           <p className="mt-[31px] font-[500] text-[20px] leading-[23.38px] max-lg:text-center text-black">
             Available on
@@ -38,8 +41,17 @@ const Hero = () => {
 
         {/* image */}
         <div className="mt-[52.94px] relative lg:shrink-0 ">
-          <img src={curve} className="absolute top-[-20px] lg:top-[-44px] lg:size-[178px]" />
-          <img src={heroImg} className="z-10 relative lg:w-[588px] lg:h-[502px]" />
+          <img
+            src={curve}
+            className={twMerge(
+              `absolute top-[-20px] lg:top-[-44px] lg:size-[178px]`,
+              curveStyle
+            )}
+          />
+          <img
+            src={img || heroImg}
+            className="z-10 relative lg:w-[588px] lg:h-[502px]"
+          />
         </div>
       </div>
     </div>

@@ -5,17 +5,16 @@ import Button from "../../../components/Button";
 import tablet from "../../../assets/images/airtime-tab.png";
 import tablet2 from "../../../assets/images/slant-mobile.png";
 
-const FindNetworks = () => {
+const FindNetworks = ({heading, desc, heading2, desc2, heading3, desc3}) => {
   return (
     <div className="pt-[135.04px] font-karla">
       <div className="flex max-lg:flex-col ">
         <div className="lg:w-[650px]">
           <h2 className="text-greenPrimary text-[24px] lg:text-[48px] lg:leading-[56.11px] lg:text-[#1A1A1A] leading-[28.06px] max-lg:text-center font-[700]">
-            Find all Nigerian mobile networks on Beels
+          {heading || "  Find all Nigerian mobile networks on Beels"}
           </h2>
           <p className="text-greenPrimary font-[500] lg:text-[24px] lg:leading-[28px] text-[16px] leading-[18.7px] max-lg:text-center mt-[40px] lg:mt-[20px]">
-            Buy Airtel, Glo, MTN and 9Mobile airtime and internet data directly
-            from your account.
+            {desc || "Buy Airtel, Glo, MTN and 9Mobile airtime and internet data directly from your account."}
           </p>
           <Button
             className={
@@ -40,11 +39,10 @@ const FindNetworks = () => {
       <div className="mt-[48px] lg:mt-[300px] lg:flex lg:flex-row-reverse lg:gap-x-[53.38px]">
         <div>
           <h4 className="font-[700] lg:text-[48px] lg:leading-[56.11px] lg:text-[#1A1A1A] text-[24px] leading-[28.06px] max-lg:text-center text-greenPrimary">
-            Get your airtime top-up in a few seconds.
+           {heading2 || " Get your airtime top-up in a few seconds."}
           </h4>
           <p className="text-[16px] lg:leading-[28px] lg:text-[24px] lg:mt-[20px] leading-[18.7px] max-lg:text-center font-[500] text-greenPrimary">
-            You&apos;ll get your airtime or data soon after you complete your
-            purchase on the app.
+            {desc2 || "You&apos;ll get your airtime or data soon after you complete your purchase on the app."}
           </p>
           <button className="hidden lg:block border-b-[1.8px] border-greenPrimary text-greenPrimary text-[20px] leading-[16px] px-[12px] py-[16px] mt-[33px]">
             Join Beels
@@ -103,11 +101,10 @@ const FindNetworks = () => {
         <div className="flex max-lg:flex-col lg:items-center lg:gap-x-[81.9px] ">
           <div className="lg:w-[650px]">
             <h2 className="text-greenPrimary text-[24px] lg:text-[48px] lg:leading-[56.11px] lg:text-[#1A1A1A] leading-[28.06px] max-lg:text-center font-[700]">
-              Send airtime to your friends and family.
+            {heading3 || "  Send airtime to your friends and family."}
             </h2>
             <p className="text-greenPrimary font-[500] lg:text-[24px] lg:leading-[28px] text-[16px] leading-[18.7px] max-lg:text-center mt-[40px] lg:mt-[24px]">
-              Recharge any Nigerian phone number from your Beels app even when
-              you’re anywhere.
+             {desc3 ||  " Recharge any Nigerian phone number from your Beels app even when you&apos;re anywhere."}
             </p>
             <button className="hidden lg:block border-b-[1.8px] border-greenPrimary text-greenPrimary text-[20px] leading-[16px] px-[12px] py-[16px] mt-[33px]">
               Join Beels

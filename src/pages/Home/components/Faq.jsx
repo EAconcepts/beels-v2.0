@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { twMerge } from "tailwind-merge";
 
-const Faqs = () => {
+const Faqs = ({headingStyle}) => {
   const data = [
     {
       id: 0,
@@ -39,7 +40,7 @@ const Faqs = () => {
 
   return (
     <div className="lg:px-[64px] px-[24px]">
-      <h2 className="text-[24px] lg:text-[76px] lg:text-black lg:leading-[88.84px] text-greenPrimary text-center leading-[28.06px] font-[700]">
+      <h2 className={twMerge("text-[24px] lg:text-[76px] lg:text-black lg:leading-[88.84px] text-greenPrimary text-center leading-[28.06px] font-[700]", headingStyle)}>
         Frequently asked questions
       </h2>
       <div className="flex mt-[40px] lg:mt-[80px] flex-col gap-y-[24px]">
