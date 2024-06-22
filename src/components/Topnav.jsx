@@ -56,7 +56,7 @@ const menuList = [
   },
   {
     title: "Company",
-    link: "company",
+    link: "/company",
   },
 ];
 const Topnav = () => {
@@ -66,7 +66,7 @@ const Topnav = () => {
 
   return (
     <header
-      className={` bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
+      className={` z-10 bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
         openMenu && "fixed w-full"
       }`}
     >
@@ -107,7 +107,7 @@ const Topnav = () => {
                 </span>
                 <IoMdArrowDropdown className="text-black text-[24px]" />
               </NavLink>
-              <NavLink to="#" className="flex gap-x-[10px] items-center">
+              <NavLink to="/company" className="flex gap-x-[10px] items-center">
                 <span className="text-[24px] tracking-[1.5px] text-center text-greenPrimary leading-[28.06px] font-[500]">
                   Company
                 </span>
@@ -132,7 +132,7 @@ const Topnav = () => {
           )}
         </div>
 
-        {openMenu && <MobileMenu />}
+        {openMenu && <MobileMenu setOpenMenu={setOpenMenu} />}
       </nav>
     </header>
   );
@@ -290,14 +290,15 @@ const ProfMenu = () => {
   );
 };
 
-const MobileMenu = () => {
+const MobileMenu = ({setOpenMenu}) => {
   return (
-    <div className="fixed h-screen font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
+    <div className="fixed h-screen  font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
       <div className="flex flex-col gap-y-[24px]">
         {menuList.map((menu, index) => (
           <Link
+          onClick={()=>setOpenMenu(false)}
             key={index}
-            to={""}
+            to={menu.link}
             className="pb-[16px] flex justify-between w-full border-b-[0.8px] border-[#082C2566]"
           >
             <span className="text-[16px] font-[500] leading-[16px] text-black">

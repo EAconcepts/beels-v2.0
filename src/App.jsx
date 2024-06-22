@@ -6,6 +6,7 @@ import Invoicing from "./pages/Invoicing/Invoicing";
 import Bookkeeping from "./pages/Bookkeeping/Bookkeeping";
 import Receipt from "./pages/Receipt/Receipt";
 import Airtime from "./pages/Airtime/Airtime";
+import Company from "./pages/company/Company";
 const App = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/bookkeeping" element={<Bookkeeping />} />
         <Route path="/receipt" element={<Receipt />} />
         <Route path="/airtime" element={<Airtime />} />
+        <Route path="/company" element={<Company />} />
       </Routes>
       <Footer />
     </div>

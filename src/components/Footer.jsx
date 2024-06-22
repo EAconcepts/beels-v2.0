@@ -65,7 +65,7 @@ const Footer = () => {
         <div className="flex gap-x-[4px] mt-[24px] items-center">
           <img src={copyright} className="lg:size-[20px]" />
           <p className="text-[12px] lg:text-[16px] font-[400] leading-[14.52px] text-greenPrimary">
-            Digit Technologies
+            Beels Technologies
           </p>
         </div>
       </div>
