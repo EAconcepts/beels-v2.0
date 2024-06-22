@@ -5,7 +5,7 @@ import receipt from "../assets/images/receipt.svg";
 import money from "../assets/images/money.svg";
 import bookkeeping from "../assets/images/bookkeeping.svg";
 import { BiMenuAltRight } from "react-icons/bi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Button from "./Button";
 import { useState } from "react";
@@ -66,12 +66,12 @@ const Topnav = () => {
 
   return (
     <header
-      className={` z-10 bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
+      className={`relative z-20 bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
         openMenu && "fixed w-full"
       }`}
     >
-      <nav className="flex w-full justify-between items-center">
-        <div className="flex gap-x-[70px]">
+      <nav className="flex w-full justify-between items-center ">
+        <div className="flex gap-x-[100px]">
           {/* logo */}
           <Link to="/" className="flex gap-x-[8.94px]">
             <img src={logo} className="" />
@@ -82,9 +82,10 @@ const Topnav = () => {
             {/* Links */}
             <div className="flex gap-x-[40px]">
               <div
-                onClick={() =>{
+                onClick={() => {
                   setShowProfessional(false);
-                  setShowBusiness((prev) => !prev)}}
+                  setShowBusiness((prev) => !prev);
+                }}
                 to="#"
                 className="flex gap-x-[10px] items-center relative"
               >
@@ -94,19 +95,19 @@ const Topnav = () => {
                 </span>
                 <IoMdArrowDropdown className="text-black text-[24px]" />
               </div>
-              <NavLink 
+              <div
                 onClick={() => {
-                  setShowBusiness(false)
-                  setShowProfessional((prev) => !prev)
-                  
+                  setShowBusiness(false);
+                  setShowProfessional((prev) => !prev);
                 }}
-                to="#" className="flex gap-x-[10px] relative items-center">
+                className="flex gap-x-[10px] relative items-center"
+              >
                 {showProfessional && <ProfMenu />}
                 <span className="text-[24px] tracking-[1.5px] text-center text-greenPrimary leading-[28.06px] font-[500]">
                   Professional
                 </span>
                 <IoMdArrowDropdown className="text-black text-[24px]" />
-              </NavLink>
+              </div>
               <NavLink to="/company" className="flex gap-x-[10px] items-center">
                 <span className="text-[24px] tracking-[1.5px] text-center text-greenPrimary leading-[28.06px] font-[500]">
                   Company
@@ -117,7 +118,7 @@ const Topnav = () => {
         </div>
 
         {/* Buttons */}
-        <div className="hidden lg:flex gap-x-[17px]">
+        <div className="hidden lg:flex gap-x-[17px] ">
           <Button className="">Join Beels</Button>
           <Button className="bg-white text-greenPrimary border-[1px] border-greenPrimary">
             Login
@@ -149,8 +150,8 @@ const FloatingMenu = () => {
     { title: "Fixed Deposit", path: "#", icon: receipt },
   ];
   const payment = [
-    { title: "Airtime & Data", path: "#", icon: invoice },
-    { title: "Pay Bills", path: "#", icon: receipt },
+    { title: "Airtime & Data", path: "/airtime", icon: invoice },
+    { title: "Pay Bills", path: "/airtime", icon: receipt },
     { title: "Virtual card", path: "#", icon: receipt },
     {
       title: "Global pay china",
@@ -249,11 +250,12 @@ const FloatingMenu = () => {
 };
 
 const ProfMenu = () => {
+  const navigateTo = useNavigate();
   const payment = [
-    { title: "Airtime & Data", path: "#", icon: invoice },
-    { title: "Pay Bills", path: "#", icon: receipt },
+    { title: "Airtime & Data", path: "/airtime", icon: invoice },
+    { title: "Pay Bills", path: "/airtime", icon: receipt },
     { title: "Virtual card", path: "#", icon: receipt },
-   
+
     { title: "Domestic Transfer", path: "#", icon: receipt },
   ];
   return (
@@ -268,7 +270,10 @@ const ProfMenu = () => {
           <div className="flex flex-col mt-[18px] gap-y-[16px]">
             {payment?.map((link, index) => (
               <div
-                to={link.path}
+                onClick={() => {
+                  navigateTo(`${link.path}`);
+                  console.log(link.path);
+                }}
                 key={index}
                 className="flex gap-x-[14.2px] items-center"
               >
@@ -290,13 +295,13 @@ const ProfMenu = () => {
   );
 };
 
-const MobileMenu = ({setOpenMenu}) => {
+const MobileMenu = ({ setOpenMenu }) => {
   return (
     <div className="fixed h-screen  font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
       <div className="flex flex-col gap-y-[24px]">
         {menuList.map((menu, index) => (
           <Link
-          onClick={()=>setOpenMenu(false)}
+            onClick={() => setOpenMenu(false)}
             key={index}
             to={menu.link}
             className="pb-[16px] flex justify-between w-full border-b-[0.8px] border-[#082C2566]"

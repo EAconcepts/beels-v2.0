@@ -28,14 +28,16 @@ const Airtime = () => {
       <div className="mt-[54px]">
         <Hero />
       </div>
-      <div className="bg-[#FFFFFF] px-[20px] py-[91px]">
-        <div className="flex flex-col gap-y-[20px]">
+      <div className="bg-[#FFFFFF] lg:px-[64px] px-[20px] py-[91px]">
+        <div className="flex max-lg:flex-col gap-y-[20px] lg:gap-x-[20px]">
           {features?.map((feat, index) => (
             <div
               key={index}
               className="bg-[#F8FEF3] rounded-[8px] flex flex-col gap-y-[8px] py-[16px] px-[16px]"
             >
-              <img src={feat.icon} className="size-fit" />
+              <div className="bg-[#D0F8B1] flex justify-center items-center size-[40px] rounded-full">
+                <img src={feat.icon} className="size-fit" />
+              </div>
               <p className="text-[20px] font-[700] text-[#03110E] leading-[24px]">
                 {feat.content}
               </p>
@@ -43,14 +45,14 @@ const Airtime = () => {
           ))}
         </div>
       </div>
-      <div className="px-[20px]">
+      <div className="px-[20px] lg:px-[64px]">
         <FindNetworks />
       </div>
       <div className="mt-[195px]">
         <Faqs />
       </div>
       <div className="mt-[135px]">
-        <Download/>
+        <Download />
       </div>
     </div>
   );
