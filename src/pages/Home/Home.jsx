@@ -55,7 +55,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className=" justify-end max-lg:mt-[31.94px] ">
+        <div className=" justify-end lg:pr-[100px] max-lg:mt-[31.94px] ">
           <HeroCard />
         </div>
       </div>
