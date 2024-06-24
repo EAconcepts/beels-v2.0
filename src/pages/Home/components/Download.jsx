@@ -23,7 +23,7 @@ const Download = () => {
         </div>
       </div>
       {/* Phone image */}
-      <div className="relative flex lg:w-full lg:justify-center max-lg:justify-end overflow-hidden pt-[75.4px]">
+      <div className="relative flex lg:w-full lg:justify-center max-lg:justify-center maxlg:justify-end overflow-hidden pt-[75.4px]">
         <img src={phoneLoan} className="z-20 lg:w-[335.21px]" />
         <img
           src={graident2}

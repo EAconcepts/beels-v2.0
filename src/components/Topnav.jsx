@@ -66,8 +66,8 @@ const Topnav = () => {
 
   return (
     <header
-      className={`relative z-20 bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
-        openMenu && "fixed w-full"
+      className={`relative z-50 bg-white font-karla max-lg:h-[88px] pt-[30px] pr-[18px] pl-[20px] pb-[18px] ${
+        openMenu && " max-lg:fixed w-full"
       }`}
     >
       <nav className="flex w-full justify-between items-center ">
@@ -296,7 +296,7 @@ const ProfMenu = () => {
 
 const MobileMenu = ({ setOpenMenu }) => {
   return (
-    <div className="fixed h-screen  font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
+    <div className="fixed h-screen z-40 font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
       <div className="flex flex-col gap-y-[24px]">
         {menuList.map((menu, index) => (
           <Link
@@ -312,6 +312,13 @@ const MobileMenu = ({ setOpenMenu }) => {
           </Link>
         ))}
       </div>
+         {/* Buttons */}
+         <div className="mt-[100px] flex flex-col items-center gap-y-[24px] ">
+          <Button className="w-full">Join Beels</Button>
+          <Button className="w-full bg-white text-greenPrimary border-[1px] border-greenPrimary">
+            Login
+          </Button>
+        </div>
     </div>
   );
 };

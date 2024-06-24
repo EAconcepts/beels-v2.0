@@ -79,7 +79,8 @@ const Home = () => {
             {" "}
             Start right with Beels, where your needs are attended to.
           </p>
-          <div className="flex gap-x-[85px] lg:mt-[138px]">
+          {/* Navigation */}
+          <div className="hidden lg:flex gap-x-[85px] max-lg:justify-center lg:mt-[138px]">
             {/* Prev */}
             <div className="flex rounded-full items-center justify-center bg-white lg:size-[100px]">
               <MdArrowLeft className="lg:text-[64px]" />
@@ -91,24 +92,37 @@ const Home = () => {
           </div>
         </div>
         {/* Small Business */}
-        <div className="lg:w-full max-lg:mt-[26px] relative">
-          <img
-            src={start}
-            className=" border-white max-lg:h-[304px] lg:w-full  w-[304px]"
-          />
-          <div className="flex flex-col lg:bottom-[48px] lg:left-[48px] absolute bottom-[32px] pl-[27px] pr-[57px] lg:gap-y-[10px]">
-            <h3 className="text-[24px] lg:text-[36px] lg:leading-[28px] leading-[28px] font-[700] text-white">
-              Small Businesses
-            </h3>
-            <p className="font-[400] pr-[31px] lg:text-[24px] lg:leading-[28px] text-[14px] leading-[16.37px] text-[#E4E4E4]">
-              Concentrate on expanding your business, as Beels takes care of
-              your financial management.
-            </p>
+        <div className="lg:W-full lg:shrink-0">
+          <div className="lg:w-full max-lg:flex max-lg:justify-center max-lg:mt-[26px] relative shrink-0">
+            <img
+              src={start}
+              className=" border-white shrink-0 max-lg:h-[304px] lg:w-[668px] lg:w-ful lg:h-[620px]  w-[304px]"
+            />
+            <div className="flex flex-col max-lg:left-[12px] lg:bottom-[48px] lg:left-[48px] absolute bottom-[32px] pl-[27px] pr-[57px] lg:gap-y-[10px]">
+              <h3 className="text-[24px] lg:text-[36px] lg:leading-[28px] leading-[28px] font-[700] text-white">
+                Small Businesses
+              </h3>
+              <p className="font-[400] pr-[31px] lg:text-[24px] lg:leading-[28px] text-[14px] leading-[16.37px] text-[#E4E4E4]">
+                Concentrate on expanding your business, as Beels takes care of
+                your financial management.
+              </p>
+            </div>
+          </div>
+          {/* Navigation Mobile*/}
+          <div className="lg:hidden max-lg:mt-[28px] flex gap-x-[85px] max-lg:justify-center lg:mt-[138px]">
+            {/* Prev */}
+            <div className="flex rounded-full items-center justify-center bg-white lg:size-[100px]">
+              <MdArrowLeft className="lg:text-[64px]" />
+            </div>
+            {/* Next */}
+            <div className="flex rounded-full bg-white  items-center justify-center lg:size-[100px]">
+              <MdArrowRight className="lg:text-[64px]" />
+            </div>
           </div>
         </div>
       </div>
       <div>
-        <div>{/* <BeelersStories/> */}</div>
+        <div className="max-lg:px-[20px] lg:px-[64px] max-lg:mt-[87px]"><BeelersStories/></div>
         <div className="pt-[64px]">
           <Faqs />
         </div>
