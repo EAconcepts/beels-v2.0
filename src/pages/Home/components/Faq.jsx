@@ -2,45 +2,38 @@ import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { twMerge } from "tailwind-merge";
 
-const Faqs = ({headingStyle}) => {
+const Faqs = ({ headingStyle }) => {
   const data = [
     {
       id: 0,
       title: "How do you Pronounce Beels?",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                      ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                      In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                      Fusce sed commodo purus, at tempus turpis.`,
+      content: `Oya say Beels. B E E L S`,
     },
     {
       id: 1,
       title: "What type of businesses are eligible for this service?",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                      ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                      In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                      Fusce sed commodo purus, at tempus turpis.`,
+      content: `Beels is very much suitable for MSMEs willing to get to the next level of their business`,
     },
     {
       id: 2,
       title: "How long does it take to receive funds?",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                      ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                      In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                      Fusce sed commodo purus, at tempus turpis.`,
+      content: `Before you say JACK`,
     },
     {
       id: 3,
       title: "How can I contact with support?",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                      ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                      In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                      Fusce sed commodo purus, at tempus turpis.`,
+      content: `You can easily reach support via E-mail, call or chat`,
     },
   ];
 
   return (
     <div className="lg:px-[64px] px-[24px]">
-      <h2 className={twMerge("text-[24px] lg:text-[76px] lg:text-black lg:leading-[88.84px] text-greenPrimary text-center leading-[28.06px] font-[700]", headingStyle)}>
+      <h2
+        className={twMerge(
+          "text-[24px] lg:text-[76px] lg:text-black lg:leading-[88.84px] text-greenPrimary text-center leading-[28.06px] font-[700]",
+          headingStyle
+        )}
+      >
         Frequently asked questions
       </h2>
       <div className="flex mt-[40px] lg:mt-[80px] flex-col gap-y-[24px]">
@@ -67,7 +60,15 @@ export const Faq = ({ title, content }) => {
         </span>
         {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </div>
-      {isOpen && <p className={"pt-[12px] lg:text-black lg:text-[24px] lg:leading-[29.05px]"}>{content}</p>}
+      {isOpen && (
+        <p
+          className={
+            "pt-[12px] lg:text-black italics lg:text-[24px] lg:leading-[29.05px]"
+          }
+        >
+          {content}
+        </p>
+      )}
     </div>
   );
 };

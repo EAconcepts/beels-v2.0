@@ -4,6 +4,8 @@ import invoice from "../assets/images/invoice.svg";
 import receipt from "../assets/images/receipt.svg";
 import money from "../assets/images/money.svg";
 import bookkeeping from "../assets/images/bookkeeping.svg";
+import deposit from "../assets/images/fixed-deposit.svg";
+import moneyMarket from "../assets/images/money-market.svg";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -295,30 +297,86 @@ const ProfMenu = () => {
 };
 
 const MobileMenu = ({ setOpenMenu }) => {
+  const [showBsMgt, setShowBsMgt] = useState(false);
+  const [showProf, setShowPof] = useState(false);
+  const menus = [
+    {
+      title: "Business Management",
+      subMenu: [
+        { title: "Invoice", link: "/invoicing", icon: invoice },
+        { title: "Receipt", link: "/receipt", icon: receipt },
+        { title: "Book-Keeping", link: "/bookkeeping", icon: bookkeeping },
+      ],
+    },
+    {
+      title: "Cash Management",
+      subMenu: [
+        { title: "Beels Money Market note", link: "#", icon: moneyMarket },
+        { title: "Fixed Deposit", link: "/#", icon: deposit },
+      ],
+    },
+    {
+      title: "Company",
+      link: "/company",
+    },
+  ];
+  const navigateTo = useNavigate()
   return (
-    <div className="fixed h-screen z-40 font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col">
+    <div className="fixed h-[calc(100vh-88px)] overflow-y-scroll z-40 font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col pb-[50px]">
       <div className="flex flex-col gap-y-[24px]">
-        {menuList.map((menu, index) => (
-          <Link
-            onClick={() => setOpenMenu(false)}
-            key={index}
-            to={menu.link}
-            className="pb-[16px] flex justify-between w-full border-b-[0.8px] border-[#082C2566]"
-          >
-            <span className="text-[16px] font-[500] leading-[16px] text-black">
-              {menu.title}
-            </span>
-            {menu.links && <IoCaretDownOutline />}
-          </Link>
+        {menus.map((menu, index) => (
+          <div key={index} className="">
+            <Link
+              onClick={() => {
+                if (index == 0) {
+                  setShowBsMgt((prev) => !prev);
+                  console.log(index);
+                }
+                if (index == 1) {
+                  setShowPof((prev) => !prev);
+                  console.log(index);
+                }
+                if(index==2) {navigateTo(menu.link)
+                  setOpenMenu(false)
+                }
+              }}
+              key={index}
+              to={menu?.link}
+              className="pb-[16px] flex justify-between w-full border-b-[0.8px] border-[#082C2566]"
+            >
+              <span className="text-[16px] font-[500] leading-[16px] text-black">
+                {menu.title}
+              </span>
+              {menu.subMenu && <IoCaretDownOutline />}
+            </Link>
+            {(showBsMgt && index == 0) ||
+              showProf && index == 1 && (
+                <div className="mt-[16px]">
+                  {menu.subMenu?.map((sub, index) => (
+                    <Link
+                      key={index}
+                      to={sub.link}
+                      className="flex gap-x-[12.47px] items-center"
+                    >
+                      <img src={sub.icon} className="size-[29.57px]" />
+                      <span className="font-[500] text-[11.76px] leading-[13.75px] tracking-[0.92px]">
+                        {sub.title}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+          </div>
         ))}
       </div>
-         {/* Buttons */}
-         <div className="mt-[100px] flex flex-col items-center gap-y-[24px] ">
-          <Button className="w-full">Join Beels</Button>
-          <Button className="w-full bg-white text-greenPrimary border-[1px] border-greenPrimary">
-            Login
-          </Button>
-        </div>
+      {/* Buttons */}
+      <div className="mt-[100px] flex flex-col items-center gap-y-[24px] ">
+        <Button className="w-full">Join Beels</Button>
+        <Button className="w-full bg-white text-greenPrimary border-[1px] border-greenPrimary">
+          Login
+        </Button>
+      </div>
     </div>
   );
 };
