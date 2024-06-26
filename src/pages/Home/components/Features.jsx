@@ -29,7 +29,7 @@ const Features = () => {
   return (
       // <div className="pt-[55px] mt-[28px] lg:px-[64px] px-[16px] flex flex-col  w-full">
        
-        <div className="flex max-lg:flex-col lg:justify-center lg:flex-wrap mt-[40px] gap-y-[20px]">
+        <div className="flex max-lg:flex-col lg:justify-center gap-x-[20px] lg:flex-wrap mt-[40px] gap-y-[20px]">
           {features?.map((feat, index) => (
             <div className="flex lg:w-[424px] rounded-[8px] bg-[#F8FEF3] flex-col p-[16px]" key={index}>
               <div className="flex flex-col gap-y-[8px]">

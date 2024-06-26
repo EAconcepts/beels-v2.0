@@ -9,9 +9,9 @@ import qoute from "../../../assets/images/qoute.svg";
 const BeelersStories = () => {
   const stories = [
     {
-      content: "I highly recommend business should use Beels",
-      from: "Peter, Belgium",
-      desc: "on what he learned when sitting with himself",
+      content: "Headspace provides me with.... a connection to myself, and a disconnection from negative thoughts, feelings, and sensations.",
+      from: "Keri, UK",
+      desc: "on finfing her happy place",
     },
     {
       content: "I highly recommend business should use Beels",
@@ -19,9 +19,9 @@ const BeelersStories = () => {
       desc: "on what he learned when sitting with himself",
     },
     {
-      content: "I highly recommend business should use Beels",
-      from: "Peter, Belgium",
-      desc: "on what he learned when sitting with himself",
+      content: "Your app brings so much peace and tolerance to our home",
+      from: "Rachael, UK",
+      desc: "on Meditation's positive effect on family life",
     },
     {
       content: "I highly recommend business should use Beels",
