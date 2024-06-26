@@ -9,3 +9,11 @@
 :root {
   --green-primary: 8 44 37;
 }
+
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: -10px;
+  left:0;
+  z-index: 999;
+  /* position: relative; */
+}

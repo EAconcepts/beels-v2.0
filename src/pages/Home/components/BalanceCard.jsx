@@ -4,10 +4,11 @@ import receive from "../../../assets/images/receiveIcon.svg";
 import Button from "../../../components/Button";
 import { FaGreaterThan } from "react-icons/fa6";
 import naira from "../../../assets/images/naira-white.svg";
+import { twMerge } from "tailwind-merge";
 
-const BalanceCard = () => {
+const BalanceCard = ({className}) => {
   return (
-    <div className="max-w-[109px] lg:w-[174.94px] bg-greenPrimary rounded-[6.32px] relative ">
+    <div className={twMerge("max-lg:w-[109px] lg:w-[174.94px] bg-greenPrimary rounded-[6.32px] relative ", className)}>
       {/* Beels Point */}
       <div className="absolute top-[-3px] right-[-2.5px] rounded-t-[2.95px] rounded-r-[6.32px] p-[2.32px] rounded-l-[2.95px] flex ">
         <span className=" rounded-t-[3.16px] roudned-b-[4.22px] text-[4.37px] leading-[5.11px] lg:text-[6.96px] text-greenPrimary font-[500] lg:leading-[8.13px] rounded-l-[3.16px] bg-gradient-to-b from-[#B6F485] to-[#E9FDF2] py-[2.32px] pr-[2.11px]">

@@ -75,7 +75,7 @@ const Topnav = () => {
       <nav className="flex w-full justify-between items-center ">
         <div className="flex gap-x-[100px]">
           {/* logo */}
-          <Link to="/" className="flex gap-x-[8.94px]">
+          <Link to="/" className="flex gap-x-[8.94px] cursor-pointer">
             <img src={logo} className="" />
             <img src={logoText} className="" />
           </Link>

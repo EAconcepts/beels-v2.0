@@ -9,8 +9,41 @@ import Download from "./components/Download";
 import { MdArrowLeft, MdArrowRight } from "react-icons/md";
 import BeelersStories from "./components/BeelersStories";
 import ComingSoon from "../../components/ComingSoon";
+import img2 from "../../assets/images/card-img2.png";
+import img3 from "../../assets/images/card-img3.png";
+import dashboard from "../../assets/images/dashboard.png";
+import BalanceCard from "./components/BalanceCard";
+import DashboardCard from "./components/DashboardCard";
+import NanoCard from "./components/NanoCard";
 
 const Home = () => {
+  const cards = [
+    {
+      title: "Open a Beels for business account designed for your business",
+      content:
+        "Gain instant Insights, Initiate Transactions, Approve Payments, and Monitor Account Balance, all from Once Unified Dashboard with Beels.",
+      image: dashboard,
+      style: `bg-[#F2EDFF] top-[5vh]`,
+      card: <BalanceCard className={"absolute bottom-[-40px] left-[24px]"} />,
+    },
+    {
+      title:
+        "Access up to 100 million via various credit products for your business.",
+      content:
+        "Skip the wait on unpaid invoices or inflexible financing options. With Beels, access up to ₦100,000,000  within just 48 hours to fuel your business growth and expansion.",
+      image: img3,
+      style: "bg-[#FFD4C8] top-[12vh]",
+      card: <NanoCard className={"absolute bottom-[-40px] left-[34px]"} />,
+    },
+    {
+      title: "Get Paid Everywhere",
+      content:
+        "Accelerate your customers’ payment process by offering familiar payment methods they’re accustomed to, ensuring swift and seamless transactions with Beels.",
+      image: img2,
+      style: "bg-white top-[15vh]",
+      card: <DashboardCard className={"left-[24px]"} />,
+    },
+  ];
   return (
     <div className="w-full pt-[15px] lg:pb-[121px] bg-[#F4FDED] font-karla">
       {/* coming soon */}
@@ -69,7 +102,14 @@ const Home = () => {
         </div>
       </div>
       <div className="px-[20px] lg:px-[64px] pt-[99px] ">
-        <GetPaid />
+        {cards?.map((card, index) => (
+          <GetPaid
+            key={index}
+            card={card}
+            Card={card.card}
+            className={card.style}
+          />
+        ))}
       </div>
       {/* Start right */}
       <div className="mt-[181px] px-[20px] lg:px-[64px] lg:flex lg:items-center lg:justify-between lg:gap-x-[83px]">
@@ -122,7 +162,9 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <div className="max-lg:px-[20px] lg:px-[64px] max-lg:mt-[87px]"><BeelersStories/></div>
+        <div className="max-lg:px-[20px] lg:px-[64px] max-lg:mt-[87px]">
+          <BeelersStories />
+        </div>
         <div className="pt-[64px]">
           <Faqs />
         </div>

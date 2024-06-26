@@ -1,10 +1,11 @@
 import product from "../../../assets/images/product.svg";
 import avatar from "../../../assets/images/avatar.svg";
 import orders from "../../../assets/images/order-bag.svg";
+import { twMerge } from "tailwind-merge";
 
-const DashboardCard = () => {
+const DashboardCard = ({className}) => {
   return (
-    <div className=" absolute left-[4px] lg:left-[12px] bottom-[-30px] flex flex-col bg-white font-karla rounded-[4.59px] py-[5.5px] tracking-[4%] px-[7.34px]">
+    <div className={twMerge(" absolute left-[4px] lg:left-[12px] bottom-[-30px] flex flex-col bg-white font-karla rounded-[4.59px] py-[5.5px] tracking-[4%] px-[7.34px]", className)}>
       <span className="font-[500] text-[7.34px] lg:text-[11.63px] leading-[8.58px] lg:leading-[13.59px] text-[#082C25CC]">
         Dashboard
       </span>
