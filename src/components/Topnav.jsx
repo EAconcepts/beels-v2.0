@@ -349,8 +349,7 @@ const MobileMenu = ({ setOpenMenu }) => {
               </span>
               {menu.subMenu && <IoCaretDownOutline />}
             </Link>
-            {(showBsMgt && index == 0) ||
-              showProf && index == 1 && (
+            {(showBsMgt && index==0|| showProf && index==1)  && (
                 <div className="mt-[16px]">
                   {menu.subMenu?.map((sub, index) => (
                     <Link
