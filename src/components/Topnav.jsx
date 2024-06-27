@@ -4,6 +4,13 @@ import invoice from "../assets/images/invoice.svg";
 import receipt from "../assets/images/receipt.svg";
 import money from "../assets/images/money.svg";
 import bookkeeping from "../assets/images/bookkeeping.svg";
+import airtime from "../assets/images/payment.svg";
+import payBills from "../assets/images/payBills.svg";
+import virtualCard from "../assets/images/virtualCard.svg";
+import globalPay from "../assets/images/globalPay.svg";
+import domesticTrf from "../assets/images/domesticTrf.svg";
+import beelsMoney from "../assets/images/beelsMoney.svg";
+import fixedDeposit from "../assets/images/fixedDeposit.svg";
 import deposit from "../assets/images/fixed-deposit.svg";
 import moneyMarket from "../assets/images/money-market.svg";
 import { BiMenuAltRight } from "react-icons/bi";
@@ -73,7 +80,7 @@ const Topnav = () => {
       }`}
     >
       <nav className="flex w-full justify-between items-center ">
-        <div className="flex gap-x-[100px]">
+        <div className="flex gap-x-[69px]">
           {/* logo */}
           <Link to="/" className="flex gap-x-[8.94px] cursor-pointer">
             <img src={logo} className="" />
@@ -148,20 +155,24 @@ const FloatingMenu = () => {
     { title: "Book-Keeping", path: "/bookkeeping", icon: bookkeeping },
   ];
   const cashMgt = [
-    { title: "Beels Money Market note", path: "#", icon: invoice },
-    { title: "Fixed Deposit", path: "#", icon: receipt },
+    { title: "Beels Money Market note", path: "#", icon: beelsMoney },
+    { title: "Fixed Deposit", path: "#", icon: fixedDeposit },
   ];
   const payment = [
-    { title: "Airtime & Data", path: "/airtime", icon: invoice },
-    { title: "Pay Bills", path: "/airtime", icon: receipt },
-    { title: "Virtual card", path: "#", icon: receipt },
+    { title: "Airtime & Data", path: "/airtime", icon: airtime },
+    { title: "Pay Bills", path: "/airtime", icon: payBills },
+    { title: "Virtual card", path: "#", icon: virtualCard },
     {
       title: "Global pay china",
       desc: "coming soon",
       path: "#",
-      icon: receipt,
+      icon: globalPay,
     },
-    { title: "Domestic Transfer", path: "/domestic-transfer", icon: receipt },
+    {
+      title: "Domestic Transfer",
+      path: "/domestic-transfer",
+      icon: domesticTrf,
+    },
   ];
   return (
     <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
@@ -254,11 +265,15 @@ const FloatingMenu = () => {
 const ProfMenu = () => {
   const navigateTo = useNavigate();
   const payment = [
-    { title: "Airtime & Data", path: "/airtime", icon: invoice },
-    { title: "Pay Bills", path: "/bills", icon: receipt },
-    { title: "Virtual card", path: "#", icon: receipt },
+    { title: "Airtime & Data", path: "/airtime", icon: airtime },
+    { title: "Pay Bills", path: "/airtime", icon: payBills },
+    { title: "Virtual card", path: "#", icon: virtualCard },
 
-    { title: "Domestic Transfer", path: "/domestic-transfer", icon: receipt },
+    {
+      title: "Domestic Transfer",
+      path: "/domestic-transfer",
+      icon: domesticTrf,
+    },
   ];
   return (
     <div className="flex absolute top-[100px] pt-[56px] px-[25px] left-0 justify-between w-[587px]  bg-white pb-[100px]">
@@ -320,7 +335,7 @@ const MobileMenu = ({ setOpenMenu }) => {
       link: "/company",
     },
   ];
-  const navigateTo = useNavigate()
+  const navigateTo = useNavigate();
   return (
     <div className="fixed h-[calc(100vh-88px)] overflow-y-scroll z-40 font-karla overflow-hidden left-0 top-[88px] bottom-0 bg-[#F4FDED] w-full pt-[55px] px-[20px] flex flex-col pb-[50px]">
       <div className="flex flex-col gap-y-[24px]">
@@ -336,8 +351,9 @@ const MobileMenu = ({ setOpenMenu }) => {
                   setShowPof((prev) => !prev);
                   console.log(index);
                 }
-                if(index==2) {navigateTo(menu.link)
-                  setOpenMenu(false)
+                if (index == 2) {
+                  navigateTo(menu.link);
+                  setOpenMenu(false);
                 }
               }}
               key={index}
@@ -349,23 +365,22 @@ const MobileMenu = ({ setOpenMenu }) => {
               </span>
               {menu.subMenu && <IoCaretDownOutline />}
             </Link>
-            {(showBsMgt && index==0|| showProf && index==1)  && (
-                <div className="mt-[16px]">
-                  {menu.subMenu?.map((sub, index) => (
-                    <Link
-                      key={index}
-                      to={sub.link}
-                      className="flex gap-x-[12.47px] items-center"
-                    >
-                      <img src={sub.icon} className="size-[29.57px]" />
-                      <span className="font-[500] text-[11.76px] leading-[13.75px] tracking-[0.92px]">
-                        {sub.title}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-
+            {((showBsMgt && index == 0) || (showProf && index == 1)) && (
+              <div className="mt-[16px]">
+                {menu.subMenu?.map((sub, index) => (
+                  <Link
+                    key={index}
+                    to={sub.link}
+                    className="flex gap-x-[12.47px] items-center"
+                  >
+                    <img src={sub.icon} className="size-[29.57px]" />
+                    <span className="font-[500] text-[11.76px] leading-[13.75px] tracking-[0.92px]">
+                      {sub.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>

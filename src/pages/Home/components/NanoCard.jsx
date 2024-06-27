@@ -11,7 +11,7 @@ const NanoCard = ({className}) => {
       )}
     >
       <div className="rounded-[7.08px] bg-white border-[0.71px] border-[#082C251A]">
-        <div className="bg-gradient-to-tl from-[#B6F485] to-[#B6F485] flex ">
+        <div className="bg-gradient-to-tl from-[#B6F485] to-[#B6F485] flex max-lg:gap-x-[3.12px] ">
           <img src={naira} className="lg:size-[22px] size-[12px] rounded-[7.08px]" />
           <div className="flex flex-col gap-y-[1.142px]">
             <h3 className="lg:text-[12.74px] text-[7.03px] leading-[8.22px] text-greenPrimary lg:leading-[14.89px] font-[500]">
@@ -23,7 +23,7 @@ const NanoCard = ({className}) => {
           </div>
           </div>
           <div className="py-[8.49px] px-[9.91px]">
-          <div className="flex gap-x-[12px]">
+          <div className="flex gap-x-[12px] max-lg:items-center">
             <div className="flex flex-col">
               <p className="lg:text-[14.15px] text-[7.81px] leading-[9.13px text-[#082C25] font-[500] leading-[16.55px]">
                 4 <span className="text-[4.69px] lg:text-[8.49px]  leading-[5.48px] lg:leading-[9.93px]">%</span>
@@ -33,7 +33,7 @@ const NanoCard = ({className}) => {
               </p>
             </div>
             {/* 90 days */}
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
               <p className="lg:text-[14.15px] text-[7.81px] leading-[9.13px text-[#082C25] font-[500] leading-[16.55px]">
                 90 <span className="text-[4.69px] lg:text-[8.49px]  leading-[5.48px] lg:leading-[9.93px]">Days</span>
               </p>
@@ -41,11 +41,11 @@ const NanoCard = ({className}) => {
                 Max. Duration
               </p>
             </div>
-            <div className="flex gap-x-[2.83px] bg-[#F1FC7966] py-[4.25px] px-[8.94px]">
-              <p className="lg:text-[14.15px] text-[#082C25] font-[500] leading-[16.55px]">
+            <div className="flex gap-x-[2.83px] max-lg:h-fit max-lg:rounded-[31.25px] bg-[#F1FC7966] py-[2.58px] lg:px-[4.67px] lg:py-[4.25px] px-[8.94px]">
+              <p className="lg:text-[14.15px] text-[4.69px] leading-[5.48px] text-[#082C25] font-[500] lg:leading-[16.55px]">
                Under Reivew
               </p>
-             <img src={exclaim} className=""/>
+             <img src={exclaim} className="max-lg:size-[5.47px]"/>
             </div>
           </div>
         </div>
