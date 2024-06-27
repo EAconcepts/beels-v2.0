@@ -15,5 +15,6 @@
   bottom: -10px;
   left:0;
   z-index: 999;
-  /* position: relative; */
+  /* position: relative; */ 
+  display: hidden;
 }

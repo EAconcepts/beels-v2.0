@@ -73,7 +73,7 @@ const BeelersStories = () => {
             clickable: true,
           }}
           // navigation={true}
-          modules={[Pagination, Autoplay, Navigation]}
+          modules={[ Autoplay, Navigation]}
           className="mySwiper max-lg:flex justify-center w-full "
         >
           {stories.map((story, index) => (

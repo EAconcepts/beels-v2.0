@@ -48,9 +48,9 @@ const Home = () => {
     <div className="w-full pt-[15px] lg:pb-[121px] bg-[#F4FDED] font-karla">
       {/* coming soon */}
       <ComingSoon />
-      <div className="lg:flex gap-x-[100px] lg:px-[64px] lg:mt-[118px]">
-        <div className="flex flex-col max-lg:items-center max-lg:px-[20px] max-lg:mt-[44px]">
-          <h1 className="text-[32px] lg:text-[54px] font-karla font-[700] lg:leading-[63.13px] leading-[37.41px] max-lg:text-center text-black ">
+      <div className="lg:flex gap-x-[50px] lg:px-[64px] lg:mt-[118px] ">
+        <div className="flex flex-col max-lg:items-center max-lg:px-[20px]  max-lg:mt-[44px]">
+          <h1 className="text-[32px] lg:text-[52px] font-karla font-[700] lg:leading-[63.13px] leading-[37.41px] max-lg:text-center text-black ">
             Every big business today started small and started right!!
           </h1>
           <p className="text-[16px] lg:text-[24px] lg:leading-[28.06px] mt-[16px] font-[400] max-lg:text-center leading-[18.7px]">
@@ -88,7 +88,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className=" justify-end lg:pr-[100px] max-lg:mt-[31.94px] ">
+        <div className=" justify-end lg:pr-[50px] max-lg:mt-[31.94px] ">
           <HeroCard />
         </div>
       </div>
